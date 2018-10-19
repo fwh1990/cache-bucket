@@ -1,0 +1,22 @@
+{
+  "name": "cache-bucket",
+  "version": "0.0.1",
+  "repository": "git@github.com:fwh1990/cache-bucket.git",
+  "author": "范文华 <531362022@qq.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "rm -rf lib && node_modules/.bin/tsc"
+  },
+  "dependencies": {
+    "js-md5": "^0.7.3",
+    "serialize-javascript": "^1.5.0",
+    "tslib": "^1.9.3",
+    "typescript": "^3.1.3"
+  },
+  "devDependencies": {
+    "@types/js-md5": "^0.4.2",
+    "@types/node": "^10.12.0",
+    "@types/serialize-javascript": "^1.5.0",
+    "ts-node": "^7.0.1"
+  }
+}
