@@ -6,7 +6,27 @@
   "license": "MIT",
   "scripts": {
     "build": "rm -rf lib && node_modules/.bin/tsc",
-    "test": "yarn run build && nyc  --reporter=html mocha tests/*.test.js"
+    "test": "nyc mocha --require ./node_modules/ts-node/register tests/*.test.ts"
+  },
+  "nyc": {
+    "cache": false,
+    "extension": [
+      ".ts"
+    ],
+    "include": [
+      "src/**/*.ts"
+    ],
+    "reporter": [
+      "text",
+      "html"
+    ],
+    "require": [
+      "ts-node/register"
+    ],
+    "produceSourceMap": true,
+    "sourceMap": true,
+    "instrument": true,
+    "all": true
   },
   "dependencies": {
     "js-md5": "^0.7.3",

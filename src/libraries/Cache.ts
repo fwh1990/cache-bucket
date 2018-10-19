@@ -63,6 +63,11 @@ export abstract class Cache
     return this.removeValue(Cache.generateKey(key));
   }
 
+  public clearExpired(): void
+  {
+    this.clearExpiredKey();
+  }
+
   public clearAll(): void
   {
     this.clearAllKey();

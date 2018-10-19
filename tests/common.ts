@@ -1,8 +1,30 @@
+import {MemoryCache} from "../src/memory-cache";
+import {FileCache} from "../src/file-cache";
+import {LocalCache} from "../src/local-cache";
+import {SessionCache} from "../src/sesson-cache";
+
 const {expect} = require('chai');
 
-module.exports = (cache, OrignalCache) => {
+export default (cache: MemoryCache | FileCache | LocalCache | SessionCache) => {
   it('should get null', () => {
     expect(cache.get('test')).to.be.null;
+  });
+
+  it('should always get value', () => {
+    expect(cache.getOrSet('test', () => {
+      return 'yes';
+    })).to.equal('yes');
+
+    expect(cache.getOrSet('test', () => {
+      return 'no';
+    })).to.equal('yes');
+  });
+
+  it('should default value returned when cache missing', () => {
+    expect(cache.get('test-again', 'default-value-got')).to.equal('default-value-got');
+
+    cache.set('test-again', 'some data');
+    expect(cache.get('test-again', 'default-value-got')).to.equal('some data');
   });
 
   it('should set data successfully', () => {
@@ -72,5 +94,25 @@ module.exports = (cache, OrignalCache) => {
     expect(cache.get('hello')).to.be.null;
     expect(cache.get('demo')).to.be.null;
     expect(cache.get('other')).to.be.null;
+  });
+
+  it('should clear expired data', (done) => {
+    cache.set('a', 'man');
+    cache.set('b', 'girl', 50);
+    cache.set('c', 'yes');
+    cache.set('d', 'man', 90);
+
+    setTimeout(() => {
+      cache.clearExpired();
+      expect(cache.get('b')).to.be.null;
+      expect(cache.get('d')).to.equal('man');
+    }, 70);
+
+    setTimeout(() => {
+      cache.clearExpired();
+      expect(cache.get('b')).to.be.null;
+      expect(cache.get('d')).to.be.null;
+      done();
+    }, 100);
   });
 };
