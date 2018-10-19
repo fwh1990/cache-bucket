@@ -1,4 +1,4 @@
-import {Cache, CacheStoreItem} from "../../libraries/Cache";
+import {Cache, CacheStoreItem} from "./libraries/Cache";
 
 export class MemoryCache extends Cache
 {
@@ -69,4 +69,4 @@ export class MemoryCache extends Cache
   }
 }
 
-export default new MemoryCache();
+export const cache = new MemoryCache();

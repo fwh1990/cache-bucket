@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
-import {MemoryCache} from '../memory-cache';
-import {CacheStoreItem} from "../../libraries/Cache";
+import {MemoryCache} from './memory-cache';
+import {CacheStoreItem} from "./libraries/Cache";
 
 export class FileCache extends MemoryCache
 {
@@ -55,4 +55,4 @@ export class FileCache extends MemoryCache
   }
 }
 
-export default  new FileCache();
+export const cache = new FileCache();

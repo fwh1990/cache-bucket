@@ -1,4 +1,4 @@
-import {StorageCache} from "../../libraries/Storage";
+import {StorageCache} from "./libraries/StorageCache";
 
 export class LocalCache extends StorageCache
 {
@@ -8,4 +8,4 @@ export class LocalCache extends StorageCache
   }
 }
 
-export default new LocalCache();
+export const cache = new LocalCache();
