@@ -42,6 +42,10 @@ export abstract class Cache
       data: value,
     };
 
+    if (Math.random() > 0.94) {
+      this.clearExpiredKey();
+    }
+
     return this.setValue(Cache.generateKey(key), JSON.stringify(wrappedValue), duration);
   }
 

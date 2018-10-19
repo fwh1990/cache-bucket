@@ -2,6 +2,7 @@
 .DS_Store
 node_modules/
 *.log
-*.js
 lib/
 .filecache
+.nyc_output
+coverage/

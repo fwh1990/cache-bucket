@@ -7,7 +7,9 @@ export class FileCache extends MemoryCache
 {
   protected readonly fileName: string;
 
-  constructor(filePath: string = './.filecache', mode: string = '0600')
+  public static readonly FILE_PATH: string = './.filecache';
+
+  constructor(filePath: string = FileCache.FILE_PATH, mode: string = '0600')
   {
     super();
     this.fileName = path.resolve(filePath);
