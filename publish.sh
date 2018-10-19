@@ -3,7 +3,7 @@
 set -e
 
 yarn run build
-cp package.json README.md LICENSE ./lib/
+cp package.json README.md LICENSE ./lib/src/
 
 old_registry=$(npm config get registry)
 npm config set registry https://registry.npmjs.org
@@ -20,6 +20,6 @@ echo "I am: $(npm whoami)"
 
 sleep 1
 echo "Begin publish..."
-npm publish ./lib
+npm publish ./lib/src/
 
 npm config set registry ${old_registry}
