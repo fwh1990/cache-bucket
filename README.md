@@ -42,7 +42,7 @@ import {cache} from 'cache-bucket/session-cache';
 ```
 
 # Methods
-### get(key: string, defaultValue?: any): any
+### get(key: string, defaultValue?: any) => any
 Get your cache by key.
 
 If cache is empty, defaultValue will be used. If parameter defaultValue is missing, method will respond `null`.
@@ -52,7 +52,7 @@ cache.get('foo'); // null
 cache.get('foo', 'default-bar'); // default-bar
 ```
 
-### set(key: string, value: any, duration?: number): void
+### set(key: string, value: any, duration?: number) => void
 Set cache data.
 
 The parameter `value` type can be **string**, **number**, **object**, **array**. Cache data will expired after millSeconds when you provide duration.
@@ -65,7 +65,7 @@ cache.set('obj', {pkg: 'cache-bucket'});
 cache.set('array', ['cache', 'bucket'], 3000);
 ```
 
-### getOrSet(key: string, onEmpty: () => any, duration?: number): any
+### getOrSet(key: string, onEmpty: () => any, duration?: number) => any
 
 Get cache data. 
 
@@ -77,7 +77,7 @@ cache.getOrSet('foo', () => {
 }); // bar
 ```
 
-### add(key: string, value: any, duration?: number): boolean
+### add(key: string, value: any, duration?: number) => boolean
 Set cache data when key is not exist.
 
 ```js
@@ -85,14 +85,14 @@ cache.add('foo', 'bar'); // true
 cache.add('foo', 'new-bar'); // false
 ```
 
-### remove(key: string): void
+### remove(key: string) => void
 Delete a cache data.
 
 ```js
 cache.remove('foo');
 ```
 
-### clearExpired(): void
+### clearExpired() => void
 
 Clear all expired cache data
 
@@ -100,7 +100,7 @@ Clear all expired cache data
 cache.clearExpired();
 ```
 
-### clearAll(): void
+### clearAll() => void
 
 Clear all data.
 
