@@ -47,7 +47,7 @@ Get your cache by key.
 
 If cache is empty, defaultValue will be used. If parameter defaultValue is missing, method will respond `null`.
 
-```
+```js
 cache.get('foo'); // null
 cache.get('foo', 'default-bar'); // default-bar
 ```
