@@ -54,7 +54,7 @@ export default (cache: MemoryCache | FileCache | LocalCache | SessionCache) => {
     setTimeout(() => {
       expect(cache.get('hi')).to.equal('man');
       done();
-    }, 40);
+    }, 25);
   });
 
   it('should be expired', (done) => {
@@ -62,7 +62,7 @@ export default (cache: MemoryCache | FileCache | LocalCache | SessionCache) => {
     setTimeout(() => {
       expect(cache.get('hi')).to.be.null;
       done();
-    }, 51);
+    }, 55);
   });
 
   it('should add data successfully, and deny others.', () => {
@@ -76,12 +76,12 @@ export default (cache: MemoryCache | FileCache | LocalCache | SessionCache) => {
 
     setTimeout(() => {
       expect(cache.add('hi', 'man')).to.be.false;
-    }, 25);
+    }, 20);
 
     setTimeout(() => {
       expect(cache.add('hi', 'man')).to.be.true;
       done();
-    }, 32);
+    }, 35);
   });
 
   it('should clear all data', () => {

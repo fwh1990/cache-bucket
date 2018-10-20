@@ -3,9 +3,10 @@ import path from 'path';
 import {cache, FileCache} from '../src/file-cache';
 import {expect} from 'chai';
 import commonCacheTest from './common';
+import {config} from '../src/libraries/config';
 
 describe('File Cache', () => {
-  const filePath = path.resolve('./.filecache');
+  const filePath = path.resolve(config.defaultFilePath);
 
   before(() => {
     fs.unlinkSync(filePath);

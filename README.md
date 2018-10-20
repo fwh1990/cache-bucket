@@ -129,3 +129,11 @@ const cache = new FileCache('./.new-cachefile');
 cache.set('foo', 'bar');
 cache.get('foo'); // bar
 ```
+
+### Config
+You can choose the file you want to put data when Using **FileCache**. Just creating config file `cache-bucekt.json` in project's root directory.
+```json
+{
+  "defaultFilePath": "./.custom-cache-file"
+}
+```

@@ -6,3 +6,4 @@ lib/
 .filecache
 .nyc_output
 coverage/
+cache-bucket.json

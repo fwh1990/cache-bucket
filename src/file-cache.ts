@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import {MemoryCache} from './memory-cache';
 import {CacheStoreItem} from "./libraries/Cache";
+import {config} from './libraries/config';
 
 export class FileCache extends MemoryCache
 {
@@ -59,4 +60,4 @@ export class FileCache extends MemoryCache
   }
 }
 
-export const cache = new FileCache('./.filecache');
+export const cache = new FileCache(config.defaultFilePath);
