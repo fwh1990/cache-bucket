@@ -5,7 +5,7 @@ import {expect} from 'chai';
 import commonCacheTest from './common';
 
 describe('File Cache', () => {
-  const filePath = path.resolve(FileCache.FILE_PATH);
+  const filePath = path.resolve('./.filecache');
 
   before(() => {
     fs.unlinkSync(filePath);

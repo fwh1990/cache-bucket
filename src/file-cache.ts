@@ -7,11 +7,13 @@ export class FileCache extends MemoryCache
 {
   protected readonly fileName: string;
 
-  public static readonly FILE_PATH: string = './.filecache';
-
-  constructor(filePath: string = FileCache.FILE_PATH, mode: string = '0600')
+  constructor(filePath: string, mode: string = '0600')
   {
     super();
+    if (!filePath) {
+      throw new Error('Parameter filePath is required.');
+    }
+
     this.fileName = path.resolve(filePath);
 
     if (fs.existsSync(this.fileName)) {
@@ -57,4 +59,4 @@ export class FileCache extends MemoryCache
   }
 }
 
-export const cache = new FileCache();
+export const cache = new FileCache('./.filecache');
