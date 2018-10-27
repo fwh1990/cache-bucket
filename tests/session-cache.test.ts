@@ -1,4 +1,4 @@
-import {cache} from '../src/sesson-cache';
+import {cache} from '../src/session-cache';
 // @ts-ignore
 import jsDomGlobal from 'jsdom-global';
 import commonCacheTest from './common';

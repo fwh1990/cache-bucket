@@ -1,7 +1,7 @@
 import {MemoryCache} from "../src/memory-cache";
 import {FileCache} from "../src/file-cache";
 import {LocalCache} from "../src/local-cache";
-import {SessionCache} from "../src/sesson-cache";
+import {SessionCache} from "../src/session-cache";
 
 const {expect} = require('chai');
 
