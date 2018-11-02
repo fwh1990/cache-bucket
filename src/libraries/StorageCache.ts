@@ -107,6 +107,10 @@ export abstract class StorageCache extends Cache
 
   private refreshDict(): void
   {
-    this.getInstance().setItem(StorageCache.KEY_STORE_KEY, JSON.stringify(this.keysDict));
+    this.getInstance().setItem(
+      StorageCache.KEY_STORE_KEY,
+      // Empty Set will respond '{}', but we need '[]'.
+      JSON.stringify(this.keysDict.size ? this.keysDict : [])
+    );
   }
 }
